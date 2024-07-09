@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2>Journal Statement with Running Balance</h2>
+    <form>
+      <div class="form-group">
+        <label for="fromDate">From</label>
+        <input type="date" class="form-control" id="fromDate" [(ngModel)]="from" name="from">
+      </div>
+      <div class="form-group">
+        <label for="toDate">To</label>
+        <input type="date" class="form-control" id="toDate" [(ngModel)]="to" name="to">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="fetchJournalStatement()">Fetch Statement</button>
+    </form>
+    <ul class="list-group mt-3">
+      <li class="list-group-item" *ngFor="let item of statementData">
+        {{ item.account_name }} - {{ item.balance | currency:'USD':'symbol' }}
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,14 @@
+.section {
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    color: #007bff; 
+  }
+  
+  .section-divider {
+    border-top: 4px solid #ccc; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
