@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },  
-  { path: '', redirectTo: '/import-transactions', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'import-transactions', component: ImportTransactionsComponent },
   { path: 'journal-statement', component: JournalStatementComponent },
   { path: 'balance-sheet', component: BalanceSheetComponent },
