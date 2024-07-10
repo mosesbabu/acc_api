@@ -11,6 +11,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <div *ngIf="message" class="mt-3 alert" [ngClass]="{'alert-info': isLoading, 'alert-success': !isLoading && message.includes('successful'), 'alert-danger': !isLoading && message.includes('failed')}">
+      {{ message }}
+    </div>
     <p class="text-danger mt-3" *ngIf="errorMessage">{{ errorMessage }}</p>
   </div>
   

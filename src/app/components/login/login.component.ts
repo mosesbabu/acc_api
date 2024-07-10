@@ -15,26 +15,32 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   email: string = ''; 
   password: string = ''; 
+  isLoading: boolean = false;
   errorMessage: string | null = null;
-
+  message: string = '';
   
   constructor(private authService: AuthService, private router: Router)  {}
 
   onLogin() {
-    this.errorMessage = ''; 
+    this.errorMessage = '';
+    this.isLoading = true;
+    this.message = 'Logging in...'; 
     this.authService.login(this.email, this.password).subscribe({
       next: (success: boolean) => {
         if (success) {
+          this.isLoading = false;
+          this.message = 'Login successful!'
           this.router.navigate(['/balance-sheet']);
         }
          else {
-          this.errorMessage = 'Invalid email or password. Please try again.';
-         }
-          },
-      error: (error:Error) => {
-        this.errorMessage = 'Login failed: ' + (error.message || 'Unknown error');
-        console.error('Login error', error);
-      }
+          this.message = 'Login failed. Please try again.';
+         } 
+        },
+        error: (error) => {
+          this.isLoading = false;
+          this.message = 'Login failed. Please try again.';
+          console.error('Error logging in:', error);
+        }
     });
   }
 }

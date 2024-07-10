@@ -51,9 +51,9 @@ export class ApiserviceService {
     return this.http.get<any>(url, { headers });
   }
    // Method to import transactions from Excel
-   importTransactions(transactions: any[]) {
+  importTransactions(transactions: any[]) {
     const apiUrl = `${this.apiUrl}/transaction/import-journal`;
-    const token = localStorage.getItem(this.tokenKey);
+    const token = localStorage.getItem('token');
 
     if (!token) {
       throw new Error('No token found in localStorage');

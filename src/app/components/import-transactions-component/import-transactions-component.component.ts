@@ -36,8 +36,8 @@ export class ImportTransactionsComponent {
       const data = <any[]>XLSX.utils.sheet_to_json(ws, { header: 1 });
 
       // Process the data
-      const transactions = this.transformData(data);
-      this.apiService.importTransactions(transactions);
+      this.transactions = this.transformData(data);
+      console.log('Processed transactions:', this.transactions);
     };
     reader.readAsArrayBuffer(target.files[0]);
   }
