@@ -11,33 +11,13 @@ import { tap } from 'rxjs/operators';
 
 export class ApiserviceService {
   private apiUrl = 'https://acc-api.samesoft.app';
-  private tokenKey = 'auth_token';
-  private token: string | null = null;
+ 
+  
 
   constructor(private http: HttpClient) {
-    this.token = localStorage.getItem(this.tokenKey);
+   
    }
 
-  // Method to retrieve token from API
-  getToken(): Observable<any> {
-    const loginUrl = `${this.apiUrl}/user/login`;
-    const email = 'alix@gmail.com';
-    const password = '123456';
-  
-    return this.http.post<any>(loginUrl, { email, password }).pipe(
-      tap((response) => {
-        this.setToken(response.token);
-        console.log('Token saved:', this.token);
-      })
-    );
-  }
-
-  private setToken(token: string): void {
-    this.token = token;
-    localStorage.setItem(this.tokenKey, token);
-  }
-
-  
   
   fetchBalanceSheetData(): Observable<any> {
     const url = `${this.apiUrl}/transaction/balance-sheet`;
@@ -67,6 +47,7 @@ export class ApiserviceService {
     this.http.post(apiUrl, transactions, { headers })
       .subscribe({
         next: response => {
+          
           console.log('Successfully imported transactions:', response);
           alert('Transactions imported successfully.');
         },

@@ -1,0 +1,21 @@
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3em;
+  }
+  
+.alert-info {
+    color: #00529B;
+    background-color: #BDE5F8;
+  }
+  
+  .alert-success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+  }
+  
+  .alert-danger {
+    color: #D8000C;
+    background-color: #FFBABA;
+  }
+  

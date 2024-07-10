@@ -14,6 +14,8 @@ import * as XLSX from 'xlsx';
   styleUrl: './import-transactions-component.component.css'
 })
 export class ImportTransactionsComponent {
+  isLoading: boolean = false;
+  message: string = '';
   file: File | null = null;
   transactions: any[] = [];
 
@@ -26,6 +28,8 @@ export class ImportTransactionsComponent {
     if (target.files.length !== 1) {
       throw new Error('Cannot use multiple files');
     }
+    this.isLoading = true;
+    this.message = 'Importing transactions...';
 
     const reader: FileReader = new FileReader();
     reader.onload = (e: any) => {
@@ -38,6 +42,8 @@ export class ImportTransactionsComponent {
       // Process the data
       this.transactions = this.transformData(data);
       console.log('Processed transactions:', this.transactions);
+      this.isLoading = false;
+      this.message = '';
     };
     reader.readAsArrayBuffer(target.files[0]);
   }

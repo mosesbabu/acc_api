@@ -4,17 +4,18 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
+
 })
 export class LoginComponent {
-  email: string = ''; 
-  password: string = ''; 
+  email: string = environment.defaultEmail;
+  password: string = environment.defaultPassword; 
   isLoading: boolean = false;
   errorMessage: string | null = null;
   message: string = '';
