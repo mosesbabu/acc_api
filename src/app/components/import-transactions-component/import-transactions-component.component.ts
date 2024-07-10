@@ -3,12 +3,13 @@ import { ApiserviceService } from '../../services/apiservice.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as XLSX from 'xlsx';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-import-transactions-component',
   standalone: true,
   imports: [CommonModule,
-    FormsModule
+    FormsModule,RouterOutlet
   ],
   templateUrl: './import-transactions-component.component.html',
   styleUrl: './import-transactions-component.component.css'
