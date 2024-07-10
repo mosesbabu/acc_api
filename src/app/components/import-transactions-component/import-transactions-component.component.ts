@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiserviceService } from '../services/apiservice.service';
+import { ApiserviceService } from '../../services/apiservice.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as XLSX from 'xlsx';

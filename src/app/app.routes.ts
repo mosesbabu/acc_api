@@ -2,10 +2,10 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ImportTransactionsComponent } from './import-transactions-component/import-transactions-component.component';
-import { JournalStatementComponent } from './journal-statement-component/journal-statement-component.component';
-import { BalanceSheetComponent } from './balance-sheet-component/balance-sheet-component.component';
-import { LoginComponent } from './login/login.component';
+import { ImportTransactionsComponent } from './components/import-transactions-component/import-transactions-component.component';
+import { JournalStatementComponent } from './components/journal-statement-component/journal-statement-component.component';
+import { BalanceSheetComponent } from './components/balance-sheet-component/balance-sheet-component.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },  
