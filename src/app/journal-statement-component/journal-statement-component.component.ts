@@ -20,6 +20,10 @@ export class JournalStatementComponent {
 
   constructor(private apiService: ApiserviceService) { }
   
+  ngOnInit(): void {
+    this.fetchJournalStatement();
+  }
+
   fetchJournalStatement(): void {
     this.apiService.fetchJournalStatement(this.from, this.to).subscribe({
       next: (response) => {
@@ -30,5 +34,6 @@ export class JournalStatementComponent {
         console.error('Error fetching journal statement:', error);
       }
     });
+    
   }
 }
